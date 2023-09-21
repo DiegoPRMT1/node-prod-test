@@ -1,0 +1,29 @@
+### Recuperar todos los post
+GET http://localhost:3000/movies
+### Recuperar todos los post por id
+GET http://localhost:3000/movies/7de8815b-d912-4d84-a8bb-775efb95b7ff
+### Recuperar todos los post por genero
+# Esto es una query stream, es un parametro que está presente en la url
+# pero que se ve reflejada en la base de datos porque puede ser null
+GET http://localhost:3000/movies?genre=Action
+### Crear un post
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+  {
+    "title": "Kingsman",
+    "year": 2014,
+    "director": "Matthew Vaughn",
+    "duration": 152,
+    "poster": "https://i.ebayimg.com/images/g/GVUAAOSwAxRg9j3U/s-l500.jpg",
+    "genre": [
+      "Action"
+    ]
+  }
+### Actualizar un post por su id
+PATCH http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "year": 2022
+}
