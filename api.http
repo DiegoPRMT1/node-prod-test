@@ -27,3 +27,6 @@ Content-Type: application/json
 {
   "year": 2022
 }
+
+### Borrar una pelicula
+DELETE http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
