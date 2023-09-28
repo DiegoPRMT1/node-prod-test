@@ -1,7 +1,7 @@
 ### Recuperar todos los post
 GET http://localhost:3000/movies
 ### Recuperar todos los post por id
-GET http://localhost:3000/movies/7de8815b-d912-4d84-a8bb-775efb95b7ff
+GET http://localhost:3000/movies/65393039363631662D356433362D3131
 ### Recuperar todos los post por genero
 # Esto es una query stream, es un parametro que está presente en la url
 # pero que se ve reflejada en la base de datos porque puede ser null
