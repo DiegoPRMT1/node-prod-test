@@ -31,7 +31,38 @@ export class MovieModel {
   }
 
   static async create ({ input }) {
+    const {
+      genre: genreInput,
+      title,
+      year,
+      director,
+      duration,
+      poster,
+      rate
+    } = input
+    console.log(input)
 
+    const [uuidResult] = await connection.query('SELECT UUID() as uuid;')
+    const [{ uuid }] = uuidResult
+    const uuidHex = Buffer.from(uuid.replace(/-/g, ''), 'hex').toString('hex')
+    try {
+      await connection.query(
+        `INSERT INTO movie (id, title, year, director, duration, poster, rate) 
+        VALUES ("${uuidHex}", ?, ?, ?, ?, ?, ?);`,
+        [title, year, director, duration, poster, rate]
+      )
+    } catch (e) {
+      console.error('Error al insertar en la base de datos:', e)
+      throw new Error('Hubo un fallito')
+    }
+
+    const [movies] = await connection.query(
+      `SELECT title, year, director, duration, poster, rate, HEX(id) id 
+      FROM movie WHERE HEX(id) = ?;`,
+      [uuidHex]
+    )
+
+    return movies[0]
   }
 
   static async delete ({ id }) {

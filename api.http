@@ -11,13 +11,14 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
   {
-    "title": "Kingsman",
-    "year": 2014,
-    "director": "Matthew Vaughn",
-    "duration": 152,
-    "poster": "https://i.ebayimg.com/images/g/GVUAAOSwAxRg9j3U/s-l500.jpg",
+    "title": "La princesa Mononoke",
+    "year": 2000,
+    "director": "Hayao Miyazaki",
+    "duration": 132,
+    "poster": "https://i.ebayimg.com/thumbs/images/g/NMIAAOSwWnJkdqnZ/s-l640.jpg",
+    "rate": 10,
     "genre": [
-      "Action"
+      "Fantasy"
     ]
   }
 ### Actualizar un post por su id
@@ -30,3 +31,4 @@ Content-Type: application/json
 
 ### Borrar una pelicula
 DELETE http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
